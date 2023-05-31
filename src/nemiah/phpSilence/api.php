@@ -14,7 +14,7 @@ class api {
 	}
 	
 	function getData(){
-		$tokenQuery = new stdClass();
+		$tokenQuery = new \stdClass();
 		$tokenQuery->email = $this->email;
 		$tokenQuery->returnSecureToken = true;
 		$tokenQuery->password = $this->password;
@@ -57,12 +57,14 @@ class api {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-		$scooter = json_decode(curl_exec($ch));
+		$scooters = json_decode(curl_exec($ch));
 		curl_close($ch);
-
-		$scooter->statusParsed = $this->status[$scooter->status];
 		
-		return $scooter;
+		foreach($scooters AS $scooter)
+			$scooter->statusParsed = $this->status[$scooter->status];
+		
+		
+		return $scooters;
 	}
 }
 
