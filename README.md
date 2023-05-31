@@ -5,7 +5,7 @@ I send a big thank you to [https://github.com/lorenzo-deluca/homeassistant-silen
 
 ## Usage:
 
-	composer.phar require nemiah/php-silence:dev-main
+	composer require nemiah/php-silence:dev-main
 
 Make an instance and get the data:
 
