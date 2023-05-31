@@ -10,7 +10,10 @@ I send a big thank you to [https://github.com/lorenzo-deluca/homeassistant-silen
 Make an instance and get the data:
 
 	$api = new nemiah\phpSilence\api($email, $password);
-	$data = $api->getData();
+	$scooters = $api->getData();
+	
+	foreach($scooters AS $scooter)
+		print_r($scooter);
 	
 ##Contributions:
 Sure, just send me a PR!
